@@ -1,0 +1,12 @@
+:root {
+  --typography-heading: 'Inter';
+  --typography-base: 'Inter';
+
+  --toastify-font-family: 'Inter';
+}
+
+*,
+html,
+body {
+  font-family: var(--typography-base);
+}

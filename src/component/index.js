@@ -1,0 +1,6 @@
+export { default as Header } from "./Header"
+export { default as Footer } from "./Footer"
+export { default as DashboardNav } from "./DashboardNav"
+export { default as DashboardSideNav } from "./DashboardSideNav"
+export { default as CheckedBtn } from "./CheckedBtn"
+export { default as VideoComponent } from "./VideoComponent"
