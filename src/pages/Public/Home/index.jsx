@@ -46,7 +46,7 @@ export default function HomePage () {
           transform: 'translate(-50%, -50%)'
         }}
       >
-        <Container maxWidth='lg'>
+        <Container maxWidth='lg' sx={{ px:{xs: 4, sm: 4, md: 8}}}>
           <VideoComponent
             videoSrc='https://rentsimconnect.com/static/media/video.65ee4fd3417d0633da1b.mp4'
             autoPlay={true}
@@ -69,7 +69,7 @@ export default function HomePage () {
             <Grid
               item
               xs={12}
-              sm={6}
+              sm={12}
               md={6}
               lg={6}
               xl={12}
@@ -88,18 +88,18 @@ export default function HomePage () {
                 <Box sx={{ mt: 4 }}>
                   <CheckedBtn
                     label='Navigate with ease – Use Google Maps, Uber, and more without interruption.'
-                    sx={{ color: '#A6A6A6' }}
+                    sx={{ color: 'gray' }}
                   />
                   <CheckedBtn
-                    sx={{ color: '#A6A6A6' }}
+                    sx={{ color: 'gray' }}
                     label='Stay productive – Conduct Zoom meetings & business calls without lag.'
                   />
                   <CheckedBtn
-                    sx={{ color: '#A6A6A6' }}
+                    sx={{ color: 'gray' }}
                     label='Enjoy social media – Share your Ghana experience in real time.'
                   />
                   <CheckedBtn
-                    sx={{ color: '#A6A6A6' }}
+                    sx={{ color: 'gray' }}
                     label='Stay in touch – Call, text & video chat with family and colleagues seamlessly.'
                   />
                 </Box>
@@ -109,7 +109,7 @@ export default function HomePage () {
             <Grid
               item
               xs={12}
-              sm={6}
+              sm={12}
               md={6}
               lg={6}
               xl={12}
@@ -155,7 +155,7 @@ export default function HomePage () {
             <Grid
               item
               xs={12}
-              sm={6}
+              sm={12}
               md={6}
               lg={6}
               xl={12}
@@ -213,7 +213,7 @@ export default function HomePage () {
               </Box>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={6} lg={6} xl={12}>
+            <Grid item xs={12} sm={12} md={6} lg={6} xl={12}>
               <NumberGrid data={stats} />
             </Grid>
           </Grid>
@@ -230,7 +230,7 @@ export default function HomePage () {
             <Grid
               item
               xs={12}
-              sm={6}
+              sm={12}
               md={6}
               lg={6}
               xl={12}
@@ -261,7 +261,7 @@ export default function HomePage () {
             <Grid
               item
               xs={12}
-              sm={6}
+              sm={12}
               md={6}
               lg={6}
               xl={12}
@@ -271,7 +271,7 @@ export default function HomePage () {
                 Dont Land in Ghana <br /> Without Reliable <br /> Internet!
               </Typography>
               <Box sx={{ py: 2 }}>
-                <Typography variant='body2' color='#A6A6A6'>
+                <Typography variant='body2' color='gray'>
                   Click below to book your SIM/eSIM now and stay connected from
                   the moment you arrive!
                 </Typography>
@@ -296,15 +296,20 @@ export default function HomePage () {
         </Container>
       </Box>
       <Box
-        id="coverage"
+        id='testimonials'
         sx={{
           minHeight: '60vh',
-          py: 9,
-          px: { xs: 0, md: 4 },
+          py: {xs:9, md: 3, lg: 3, xl: 4, },
+          px: { xs: 3, sm: 3, md: 5, lg: 4, xl: 6},
           background:
             'linear-gradient(to bottom left, rgb(228, 229, 236), #fff, #fff)'
         }}
       >
+        <Box sx={{ display: 'flex', alignItems: "center", pt: {xs:6, sm: 4, md: 6, lg: 6, xl: 7}, justifyContent: "center",}}>
+          <Typography variant='h4' sx={{fontWeight: "700", color: '#000'}} >
+            Testimonials
+          </Typography>
+        </Box>
         <Container maxWidth='lg'>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>

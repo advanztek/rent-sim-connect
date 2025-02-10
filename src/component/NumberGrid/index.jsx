@@ -38,7 +38,7 @@ const NumberGrid = ({ data }) => {
         flexDirection: { xs: "column", sm: "row" },
         textAlign: { xs: "center", sm: "left" }, 
         justifyContent: "center", 
-        paddingLeft: { xs: 0, sm: index % 2 === 0 ? 20 : 0 }, 
+        paddingLeft: { xs: 0, sm:0, md: index % 2 === 0 ? 20 : 0 }, 
       }}
     >
       <NumberBox number={item.number} color={item.color} />

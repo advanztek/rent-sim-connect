@@ -38,7 +38,7 @@ export default function FAQSection() {
 
       <Grid container spacing={2}>
         {faqs.map((faq, index) => (
-          <Grid item xs={12} sm={6} key={index}>
+          <Grid item xs={12} sm={12} md={6} lg={6} xl={6} key={index}>
             <Box
               sx={{
                 backgroundColor: "#fff",

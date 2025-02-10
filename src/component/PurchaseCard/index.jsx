@@ -23,7 +23,7 @@ const plans = [
   {
     title: '2 Weeks Plan',
     desc: 'Charge per day',
-    priceBase: '4.30',
+    priceBase: '2.85',
     priceExponent: '$',
     features: ['14 days access', 'Unlimited data', 'Priority support'],
     finalP: '$30 | Buy Now'
@@ -31,7 +31,7 @@ const plans = [
   {
     title: '3 Weeks Plan',
     desc: 'Charge per day',
-    priceBase: '4.30',
+    priceBase: '2.20',
     priceExponent: '$',
     features: ['21 days access', 'Unlimited data', 'Premium support'],
     finalP: '$30 | Buy Now'
@@ -52,9 +52,11 @@ const PlanCard = ({
     <Card
       sx={{
         textAlign: 'center',
-        width: '100%',
-        height: '530px',
+        width: '350px',
+        height: '560px',
         boxShadow: 3,
+        pb: {xs: 3, sm: 3, md: 8, lg: 4, xl: 4},
+        pt: {xs: 3, sm: 3, md: 3, lg: 4, xl: 4},
         borderRadius: 2,
         backgroundColor: '#fff',
         '&:hover': {
@@ -103,6 +105,7 @@ const PlanCard = ({
             backgroundColor: 'whitesmoke',
             borderRadius: 2,
             py: '1.2rem',
+            px: {xs:"2rem", md:"0"},
             minHeight: '100px'
           }}
         >
@@ -174,14 +177,15 @@ export default function PurchaseCards () {
               display: 'flex',
               justifyContent: 'center',
               borderBottom: '2px solid #fff',
-              pb: 7
+              pb: 7,
+              px: {xs: 4, sm: 4, md: 5, lg: 6, xl: 8}
             }}
           >
             {plans.map((plan, index) => (
               <Grid
                 item
                 xs={12}
-                sm={6}
+                sm={12}
                 md={4}
                 key={index}
                 sx={{ display: 'flex', justifyContent: 'center' }}
@@ -196,7 +200,7 @@ export default function PurchaseCards () {
             spacing={4}
             sx={{
               py: '4rem',
-              px: { xs: '2rem', md: '1rem' },
+              px: { xs: '2rem', md: '2.3rem' },
               textAlign: { xs: 'center', md: 'left' },
               alignItems: 'center'
             }}

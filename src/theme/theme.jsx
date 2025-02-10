@@ -78,24 +78,45 @@ const getAppMode = (mode) => {
       },
       MuiContainer: {
         defaultProps: {
-          maxWidth: "lg", 
+          maxWidth: "lg",
         },
         styleOverrides: {
-          root: {
+          root: ({ theme }) => ({
             borderRadius: "8px",
-          },
+            padding: "4px", 
+            transition: "all 0.3s ease-in-out",
+      
+            // Responsive styles
+            [theme.breakpoints.up("sm")]: {
+              padding: "24px",
+              borderRadius: "12px",
+            },
+            [theme.breakpoints.up("md")]: {
+              padding: "40px",
+              borderRadius: "16px",
+            },
+            [theme.breakpoints.up("lg")]: {
+              padding: "80px",
+              borderRadius: "20px",
+            },
+            [theme.breakpoints.up("xl")]: {
+              padding: "48px",
+              borderRadius: "24px",
+            },
+          }),
         },
       },
-    },
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 600,
-        md: 900,
-        lg: 1300,
-        xl: 2136,
+      
+      breakpoints: {
+        values: {
+          xs: 0,
+          sm: 600,
+          md: 900,
+          lg: 1300,
+          xl: 2136,
+        },
       },
-    },
+    }
     }
   }
   

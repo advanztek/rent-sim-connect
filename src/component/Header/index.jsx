@@ -19,12 +19,11 @@ import { CheckedBtn } from '..'
 
 const NavItemsSec = [
   { id: 'home', label: 'Home' },
-  { id: 'features', label: 'Features' },  
-  { id: 'coverage', label: 'Coverage' },  
+  { id: 'features', label: 'Features' },
+  { id: 'testimonials', label: 'Testimonials' },
   { id: 'faq', label: 'FAQ' },
-  { id: 'pricing', label: 'Pricing' },
-];
-
+  { id: 'pricing', label: 'Pricing' }
+]
 
 export default function HomePage () {
   const [open, setOpen] = useState(false)
@@ -40,32 +39,32 @@ export default function HomePage () {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  
-  const handleScroll = (NavItemsSecId) => {
-    console.log("NavItemsSecId", NavItemsSecId)
+  const handleScroll = NavItemsSecId => {
+    console.log('NavItemsSecId', NavItemsSecId)
     setActiveSection(NavItemsSecId)
-    document.getElementById(NavItemsSecId)?.scrollIntoView({ behavior: 'smooth' });
-  };
+    document
+      .getElementById(NavItemsSecId)
+      ?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   useEffect(() => {
     const handleScrollSpy = () => {
-      let currentSection = 'home'; 
+      let currentSection = 'home'
       NavItemsSec.forEach(({ id }) => {
-        const section = document.getElementById(id);
+        const section = document.getElementById(id)
         if (section) {
-          const offsetTop = section.offsetTop - 100; 
+          const offsetTop = section.offsetTop - 100
           if (window.scrollY >= offsetTop) {
-            currentSection = id;
+            currentSection = id
           }
         }
-      });
-      setActiveSection(currentSection);
-    };
+      })
+      setActiveSection(currentSection)
+    }
 
-    window.addEventListener('scroll', handleScrollSpy);
-    return () => window.removeEventListener('scroll', handleScrollSpy);
-  }, []);
-
+    window.addEventListener('scroll', handleScrollSpy)
+    return () => window.removeEventListener('scroll', handleScrollSpy)
+  }, [])
 
   return (
     <Box
@@ -74,15 +73,18 @@ export default function HomePage () {
         background: 'linear-gradient(to bottom right, #cdcee7, #fff)'
       }}
     >
-      <AppBar
-        position='fixed'
-        sx={{
-          boxShadow: 'none',
-          background: isScrolled ? 'white' : 'transparent',
-          transition: 'background 0.3s ease'
-        }}
+      <Box
       >
-        <Container maxWidth='lg'>
+        <AppBar
+          position='fixed'
+          sx={{
+            boxShadow: 'none',
+            background: isScrolled ? 'white' : 'transparent',
+            transition: 'background 0.3s ease',            
+            px: {xs:"0", sm: "0", md: "3rem", lg:"10rem", xl: "6rem",}, py: {xs:"1rem", sm: "1rem", md: "1rem", lg:"1rem", xl: "2rem",},
+            // py:isScrolled ? "0" : {xs: "2px",md:"10px",},
+          }}
+        >
           <Toolbar
             sx={{ justifyContent: 'space-between', alignItems: 'center' }}
           >
@@ -112,21 +114,24 @@ export default function HomePage () {
 
             <Box
               sx={{
-                display: 'flex',
+                display: { xs: 'none', sm: 'none', md: 'flex', lg: 'flex' },
                 alignItems: 'center',
                 flexGrow: 1,
                 justifyContent: 'center',
                 gap: 4
               }}
             >
-              {NavItemsSec.map(({id, label}) => (
+              {NavItemsSec.map(({ id, label }) => (
                 <Typography
                   key={id}
                   variant='body1'
                   onClick={() => handleScroll(id)}
                   sx={{
                     cursor: 'pointer',
-                    color: activeSection === id ? appColors[theme.palette.mode]?.fg || 'black' : 'gray',
+                    color:
+                      activeSection === id
+                        ? appColors[theme.palette.mode]?.fg || 'black'
+                        : 'gray',
                     fontWeight: activeSection === id ? 'bold' : 'normal',
                     transition: 'color 0.3s ease, font-weight 0.3s ease'
                   }}
@@ -156,32 +161,31 @@ export default function HomePage () {
             <IconButton
               onClick={() => setOpen(true)}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', sm: 'block', md: 'none', lg: 'none' },
                 color: isScrolled ? '#000' : '#fff'
               }}
             >
               <MenuIcon />
             </IconButton>
-
             <Drawer anchor='right' open={open} onClose={() => setOpen(false)}>
               <List sx={{ width: 250 }}>
-                {NavItemsSec.map(text => (
+                {NavItemsSec.map(({ id, label }) => (
                   <ListItem
                     button
-                    key={text}
+                    key={id}
                     onClick={() => {
-                      scrollToSection(text)
+                      handleScroll(id)
                       setOpen(false)
                     }}
                   >
-                    <ListItemText primary={text} />
+                    <ListItemText primary={label} />
                   </ListItem>
                 ))}
               </List>
             </Drawer>
           </Toolbar>
-        </Container>
-      </AppBar>
+        </AppBar>
+      </Box>
 
       <Box
         sx={{
@@ -196,7 +200,10 @@ export default function HomePage () {
           <Grid2
             container
             spacing={2}
-            sx={{ px: 1, py: { xs: 4, md: 15, lg: 17, xl: 20 } }}
+            sx={{
+              px: { xs: 1, md: 4, lg: 4, xl: 10 },
+              py: { xs: 4, md: 15, lg: 10, xl: 20 }
+            }}
           >
             <Grid2 size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 12 }}>
               <Typography variant='h2' fontWeight='700'>
@@ -311,4 +318,3 @@ export default function HomePage () {
     </Box>
   )
 }
-
