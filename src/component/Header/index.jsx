@@ -133,7 +133,7 @@ export default function HomePage () {
       >
         <Container maxWidth='lg' sx={{ backgroundColor: '#' }}>
           <Grid2 container spacing={2} sx={{ px: 1, py: {xs:4, md:15, lg:17, xl:20}, }}>
-            <Grid2 size={{ xs: 12, sm: 6, md: 6, lg: 6, xl: 12 }}>
+            <Grid2 size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 12 }}>
               <Typography variant='h2' fontWeight='700'>
                 Stay Connected Instantly in Ghana – No-Contracts. Fast &
                 Affordable

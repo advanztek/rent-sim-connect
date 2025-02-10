@@ -10,6 +10,9 @@ import Link from '@mui/material/Link'
 import IconButton from '@mui/material/IconButton'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { appColors } from '../../constants/color'
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
+
 
 export default function Footer () {
   return (
@@ -96,6 +99,7 @@ export default function Footer () {
                   <Typography color='#A6A6A6'>Email: info@rentsimconnect.com</Typography>
                   <Typography color='#A6A6A6'>Phone: +233 206983015</Typography>
                   <Typography color='#A6A6A6'>Address: NII SAI GBEHE LN GD-184-1768 AMERICAN HOUSE, EAST LEGON</Typography>
+                  <Box display='flex'  alignItems="center" color='#A6A6A6'><WhatsAppIcon /> : +233 20698 3015 </Box>
                 </Stack>
               </Box>
             </Box>

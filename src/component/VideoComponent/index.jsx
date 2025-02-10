@@ -46,28 +46,33 @@ const styles = {
 const VideoComponent = ({ videoSrc, autoPlay = false }) => {
   const [isPlaying, setIsPlaying] = useState(autoPlay)
 
+  // Check if the source is an image
+  const isImg = /\.(jpeg|jpg|png|gif|webp)$/i.test(videoSrc)
+
   return (
     <Box sx={styles.container}>
       {isPlaying ? (
         <video
           src={videoSrc}
-          autoPlay={autoPlay}
-          muted={autoPlay}
+          autoPlay
+          muted
+          loop
           controls={!autoPlay}
           style={styles.video}
           onEnded={() => setIsPlaying(false)}
         />
       ) : (
-          <>
-            
-          <img
-            src={`${videoSrc}#t=0.1`}
-            alt='Video Thumbnail'
-            style={{ ...styles.video, position: 'absolute', top: 0, left: 0 }}
-          />
+        <>
+          {isImg && (
+            <img
+              src={videoSrc}
+              alt="Video Thumbnail"
+              style={{ ...styles.video, position: 'absolute', top: 0, left: 0 }}
+            />
+          )}
           <Box sx={styles.overlay} />
           <IconButton
-            color='primary'
+            color="primary"
             onClick={() => setIsPlaying(true)}
             sx={styles.playButton}
           >
