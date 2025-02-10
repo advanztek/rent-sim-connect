@@ -303,8 +303,7 @@ export default function HomePage () {
             <Grid item xs={12} md={4}>
               <Box>
                 <VideoComponent
-                  imageSrc='/Images/rent_1.png'
-                  videoSrc='https://player.vimeo.com/video/1055181085?'
+                  videoSrc='/Videos/video_1.mp4'
                 />
               </Box>
             </Grid>
@@ -312,7 +311,6 @@ export default function HomePage () {
             <Grid item xs={12} md={4}>
               <Box>
                 <VideoComponent
-                  imageSrc='/Images/rent_2.png'
                   videoSrc='/Videos/video_2.mp4'
                 />
               </Box>
@@ -321,7 +319,6 @@ export default function HomePage () {
             <Grid item xs={12} md={4}>
               <Box>
                 <VideoComponent
-                  imageSrc='/Images/rent_3.png'
                   videoSrc='/Videos/video_3.mp4'
                 />
               </Box>
