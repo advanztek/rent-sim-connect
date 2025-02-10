@@ -81,8 +81,7 @@ export default function HomePage () {
             boxShadow: 'none',
             background: isScrolled ? 'white' : 'transparent',
             transition: 'background 0.3s ease',            
-            px: {xs:"0", sm: "0", md: "3rem", lg:"10rem", xl: "6rem",}, py: {xs:"1rem", sm: "1rem", md: "1rem", lg:"1rem", xl: "2rem",},
-            // py:isScrolled ? "0" : {xs: "2px",md:"10px",},
+            px: {xs:"0", sm: "0", md: "3rem", lg:"10rem", xl: "6rem",}, py: {xs:"1rem", sm: "1rem", md: "1.5rem", lg:"2rem", xl: "2rem",},
           }}
         >
           <Toolbar
@@ -188,6 +187,8 @@ export default function HomePage () {
       </Box>
 
       <Box
+        
+        id='home'
         sx={{
           minHeight: '110vh',
           display: 'flex',
