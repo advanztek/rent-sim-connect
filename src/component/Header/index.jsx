@@ -163,9 +163,9 @@ export default function HomePage () {
                 alignItems: "center",
                 justifyContent: "center",
                 py: "10px",
-                px: "12px",
+                px: "10px",
                 backgroundColor: appColors[theme.palette.mode]['fg'],
-                display: { xs: 'block', sm: 'block', md: 'none', lg: 'none' },
+                display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none' },
                 color:'#fff'
               }}
             >
