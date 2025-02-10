@@ -28,7 +28,8 @@ const styles = {
     width: '100%',
     height: '100%',
     background: 'linear-gradient(to left, #701A75, #701A75, #1E40AF, #1E40AF)',
-    opacity: 0.7
+    opacity: 0.7,
+    zIndex: 1
   },
   playButton: {
     position: 'absolute',
@@ -48,34 +49,27 @@ const VideoComponent = ({ videoSrc, autoPlay = false }) => {
 
   return (
     <Box sx={styles.container}>
-      {isPlaying ? (
-        <video
-          src={videoSrc}
-          autoPlay
-          muted
-          loop
-          controls={!autoPlay}
-          style={styles.video}
-          onEnded={() => setIsPlaying(false)}
-        />
-      ) : (
-        <>
-            <img
-              src="/Images/rent_1.png"
-              alt="Video Thumbnail"
-              style={{ ...styles.video, position: 'absolute', top: 0, left: 0 }}
-            />
-          <Box sx={styles.overlay} />
-          <IconButton
-            color="primary"
-            onClick={() => setIsPlaying(true)}
-            sx={styles.playButton}
-          >
-            <PlayArrowOutlinedIcon
-              sx={{ fontSize: '80px', color: '#FFFFFF', borderRadius: '50%' }}
-            />
-          </IconButton>
-        </>
+      <video
+        src={videoSrc}
+        muted
+        loop
+        controls={isPlaying}
+        autoPlay={isPlaying}
+        style={styles.video}
+      />
+
+      {!isPlaying && <Box sx={styles.overlay} />}
+
+      {!isPlaying && (
+        <IconButton
+          color="primary"
+          onClick={() => setIsPlaying(true)}
+          sx={styles.playButton}
+        >
+          <PlayArrowOutlinedIcon
+            sx={{ fontSize: '80px', color: '#FFFFFF', borderRadius: '50%' }}
+          />
+        </IconButton>
       )}
     </Box>
   )
