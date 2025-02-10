@@ -73,15 +73,15 @@ export default function HomePage () {
         background: 'linear-gradient(to bottom right, #cdcee7, #fff)'
       }}
     >
-      <Box
-      >
+      <Box>
         <AppBar
           position='fixed'
           sx={{
             boxShadow: 'none',
             background: isScrolled ? 'white' : 'transparent',
-            transition: 'background 0.3s ease',            
-            px: {xs:"0", sm: "0", md: "3rem", lg:"10rem", xl: "6rem",}, py: {xs:"1rem", sm: "1rem", md: "1.5rem", lg:"2rem", xl: "2rem",},
+            transition: 'background 0.3s ease',
+            px: { xs: '0', sm: '0', md: '3rem', lg: '10rem', xl: '6rem' },
+            py: { xs: '1rem', sm: '1rem', md: '1.5rem', lg: '2rem', xl: '2rem' }
           }}
         >
           <Toolbar
@@ -160,8 +160,13 @@ export default function HomePage () {
             <IconButton
               onClick={() => setOpen(true)}
               sx={{
+                alignItems: "center",
+                justifyContent: "center",
+                py: "10px",
+                px: "12px",
+                backgroundColor: appColors[theme.palette.mode]['fg'],
                 display: { xs: 'block', sm: 'block', md: 'none', lg: 'none' },
-                color: isScrolled ? '#000' : '#fff'
+                color:'#fff'
               }}
             >
               <MenuIcon />
@@ -187,7 +192,6 @@ export default function HomePage () {
       </Box>
 
       <Box
-        
         id='home'
         sx={{
           minHeight: '110vh',
@@ -202,8 +206,8 @@ export default function HomePage () {
             container
             spacing={2}
             sx={{
-              px: { xs: 1, md: 4, lg: 4, xl: 10 },
-              py: { xs: 4, md: 15, lg: 10, xl: 20 }
+              px: { xs: 3.5, md: 4, lg: 4, xl: 10 },
+              py: { xs: 15, md: 15, lg: 10, xl: 20 }
             }}
           >
             <Grid2 size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 12 }}>

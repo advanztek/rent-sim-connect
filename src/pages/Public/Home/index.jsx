@@ -38,7 +38,6 @@ export default function HomePage () {
   return (
     <>
       <Box
-        id='home'
         sx={{
           position: 'relative',
           top: { xs: '170px', md: '120px' },
@@ -46,7 +45,7 @@ export default function HomePage () {
           transform: 'translate(-50%, -50%)'
         }}
       >
-        <Container maxWidth='lg' sx={{ px:{xs: 4, sm: 4, md: 8}}}>
+        <Container maxWidth='lg' sx={{ px: { xs: 4, sm: 4, md: 8 } }}>
           <VideoComponent
             videoSrc='https://rentsimconnect.com/static/media/video.65ee4fd3417d0633da1b.mp4'
             autoPlay={true}
@@ -75,7 +74,7 @@ export default function HomePage () {
               xl={12}
               sx={{ order: { xs: 1, md: 2 } }}
             >
-              <Box>
+              <Box sx={{ px: { xs: 3.5, sm: 2, md: 4, lg: 6 } }}>
                 <Typography
                   variant='h4'
                   sx={{ mt: { xs: 2, sm: 2, md: 12, lg: 12, xl: 12 } }}
@@ -267,30 +266,32 @@ export default function HomePage () {
               xl={12}
               sx={{ order: { xs: 1, md: 2 } }}
             >
-              <Typography variant='h3' sx={{ fontWeight: 600, mt: 10 }}>
-                Dont Land in Ghana <br /> Without Reliable <br /> Internet!
-              </Typography>
-              <Box sx={{ py: 2 }}>
-                <Typography variant='body2' color='gray'>
-                  Click below to book your SIM/eSIM now and stay connected from
-                  the moment you arrive!
+              <Box sx={{ px:{xs: 4, sm: 3, md: 4, lg: 5}}}>
+                <Typography variant='h3' sx={{ fontWeight: 600, mt: 10 }}>
+                  Dont Land in Ghana <br /> Without Reliable <br /> Internet!
                 </Typography>
+                <Box sx={{ py: 2 }}>
+                  <Typography variant='body2' color='gray'>
+                    Click below to book your SIM/eSIM now and stay connected
+                    from the moment you arrive!
+                  </Typography>
+                </Box>
+                <Button
+                  size='text'
+                  sx={{
+                    px: '2rem',
+                    py: '1rem',
+                    '&:hover': {
+                      backgroundColor: '#000'
+                    },
+                    borderRadius: '50px',
+                    textTransform: 'uppercase',
+                    backgroundColor: appColors[theme.palette.mode]['fg']
+                  }}
+                >
+                  Get your SIM Now
+                </Button>
               </Box>
-              <Button
-                size='text'
-                sx={{
-                  px: '2rem',
-                  py: '1rem',
-                  '&:hover': {
-                    backgroundColor: '#000'
-                  },
-                  borderRadius: '50px',
-                  textTransform: 'uppercase',
-                  backgroundColor: appColors[theme.palette.mode]['fg']
-                }}
-              >
-                Get your SIM Now
-              </Button>
             </Grid>
           </Grid>
         </Container>
@@ -299,14 +300,21 @@ export default function HomePage () {
         id='testimonials'
         sx={{
           minHeight: '60vh',
-          py: {xs:9, md: 3, lg: 3, xl: 4, },
-          px: { xs: 3, sm: 3, md: 5, lg: 4, xl: 6},
+          py: { xs: 2, md: 3, lg: 3, xl: 4 },
+          px: { xs: 3, sm: 3, md: 5, lg: 4, xl: 6 },
           background:
             'linear-gradient(to bottom left, rgb(228, 229, 236), #fff, #fff)'
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: "center", pt: {xs:6, sm: 4, md: 6, lg: 6, xl: 7}, justifyContent: "center",}}>
-          <Typography variant='h4' sx={{fontWeight: "700", color: '#000'}} >
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            py: { xs: 6, sm: 4, md: 6, lg: 6, xl: 7 },
+            justifyContent: 'center'
+          }}
+        >
+          <Typography variant='h3' sx={{ fontWeight: '700', color: '#000' }}>
             Testimonials
           </Typography>
         </Box>
