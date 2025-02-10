@@ -12,26 +12,60 @@ import ListItemText from '@mui/material/ListItemText'
 import Container from '@mui/material/Container'
 import MenuIcon from '@mui/icons-material/Menu'
 import { appColors } from '../../constants/color'
-import { useTheme } from '@mui/material';
-import Stack from '@mui/material/Stack';
-import Grid2 from '@mui/material/Grid2';
+import { useTheme } from '@mui/material'
+import Stack from '@mui/material/Stack'
+import Grid2 from '@mui/material/Grid2'
 import { CheckedBtn } from '..'
 
-const navItems = ['Home', 'Features', 'Pricing', 'Coverage', 'FAQs']
+const NavItemsSec = [
+  { id: 'home', label: 'Home' },
+  { id: 'features', label: 'Features' },  
+  { id: 'coverage', label: 'Coverage' },  
+  { id: 'faq', label: 'FAQ' },
+  { id: 'pricing', label: 'Pricing' },
+];
+
 
 export default function HomePage () {
   const [open, setOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('Home')
   const theme = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  
+  const handleScroll = (NavItemsSecId) => {
+    console.log("NavItemsSecId", NavItemsSecId)
+    setActiveSection(NavItemsSecId)
+    document.getElementById(NavItemsSecId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const handleScrollSpy = () => {
+      let currentSection = 'home'; 
+      NavItemsSec.forEach(({ id }) => {
+        const section = document.getElementById(id);
+        if (section) {
+          const offsetTop = section.offsetTop - 100; 
+          if (window.scrollY >= offsetTop) {
+            currentSection = id;
+          }
+        }
+      });
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScrollSpy);
+    return () => window.removeEventListener('scroll', handleScrollSpy);
+  }, []);
+
 
   return (
     <Box
@@ -52,68 +86,94 @@ export default function HomePage () {
           <Toolbar
             sx={{ justifyContent: 'space-between', alignItems: 'center' }}
           >
-            <img style={{ width: "60px", margin: "8px 1px", height: '60px'}} src="/Logo/Logo.png" alt="#" />
-
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3 }}>
-              {navItems.map((item, index) => {
-                const isActive =
-                  item === 'Home'
-                    ? window.location.pathname === '/' ||
-                      window.location.pathname === '/home'
-                    : window.location.pathname.includes(item.toLowerCase())
-
-                return (
-                  <Typography
-                    key={index}
-                    variant='body1'
-                    sx={{
-                      cursor: 'pointer',
-                      color: isActive
-                        ? appColors[theme.palette.mode]['fg']
-                        : 'gray',
-                      fontWeight: isActive ? 'bold' : 'normal',
-                      transition: 'color 0.3s ease, font-weight 0.3s ease'
-                    }}
-                  >
-                    {item}
-                  </Typography>
-                )
-              })}
-            </Box>
-
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Button
-                variant='contained'
+            <Box
+              sx={{
+                display: 'flex',
+                gap: 1,
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <img
+                style={{ width: '60px', margin: '8px 1px', height: '60px' }}
+                src='/Logo/Logo.png'
+                alt='Logo'
+              />
+              <Typography
+                variant='h6'
                 sx={{
-                  borderRadius: '11px',
-                  display: { xs: 'none', md: 'block' },
-                  backgroundColor: appColors[theme.palette.mode]['fg'],
-                  color: '#fff',
-                  '&:hover': {
-                    backgroundColor: isScrolled
-                      ? '#000'
-                      : appColors[theme.palette.mode]['fg']
-                  }
+                  fontWeight: '700',
+                  color: appColors[theme.palette.mode]['fg']
                 }}
               >
-                Get SIM Now
-              </Button>
-
-              <IconButton
-                onClick={() => setOpen(true)}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                  color: isScrolled ? '#000' : '#fff'
-                }}
-              >
-                <MenuIcon />
-              </IconButton>
+                Rent Sim Connect
+              </Typography>
             </Box>
+
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                flexGrow: 1,
+                justifyContent: 'center',
+                gap: 4
+              }}
+            >
+              {NavItemsSec.map(({id, label}) => (
+                <Typography
+                  key={id}
+                  variant='body1'
+                  onClick={() => handleScroll(id)}
+                  sx={{
+                    cursor: 'pointer',
+                    color: activeSection === id ? appColors[theme.palette.mode]?.fg || 'black' : 'gray',
+                    fontWeight: activeSection === id ? 'bold' : 'normal',
+                    transition: 'color 0.3s ease, font-weight 0.3s ease'
+                  }}
+                >
+                  {label}
+                </Typography>
+              ))}
+            </Box>
+
+            <Button
+              variant='contained'
+              sx={{
+                borderRadius: '11px',
+                display: { xs: 'none', md: 'block' },
+                backgroundColor: appColors[theme.palette.mode]['fg'],
+                color: '#fff',
+                '&:hover': {
+                  backgroundColor: isScrolled
+                    ? '#000'
+                    : appColors[theme.palette.mode]['fg']
+                }
+              }}
+            >
+              Get SIM Now
+            </Button>
+
+            <IconButton
+              onClick={() => setOpen(true)}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+                color: isScrolled ? '#000' : '#fff'
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
 
             <Drawer anchor='right' open={open} onClose={() => setOpen(false)}>
               <List sx={{ width: 250 }}>
-                {navItems.map(text => (
-                  <ListItem button key={text} onClick={() => setOpen(false)}>
+                {NavItemsSec.map(text => (
+                  <ListItem
+                    button
+                    key={text}
+                    onClick={() => {
+                      scrollToSection(text)
+                      setOpen(false)
+                    }}
+                  >
                     <ListItemText primary={text} />
                   </ListItem>
                 ))}
@@ -128,11 +188,16 @@ export default function HomePage () {
           minHeight: '110vh',
           display: 'flex',
           alignItems: 'center',
-          background: 'linear-gradient(to top left, #cdcee7,  #fff,rgb(210, 195, 211), #cdcee7)'
+          background:
+            'linear-gradient(to top left, #cdcee7,  #fff,rgb(210, 195, 211), #cdcee7)'
         }}
       >
         <Container maxWidth='lg' sx={{ backgroundColor: '#' }}>
-          <Grid2 container spacing={2} sx={{ px: 1, py: {xs:4, md:15, lg:17, xl:20}, }}>
+          <Grid2
+            container
+            spacing={2}
+            sx={{ px: 1, py: { xs: 4, md: 15, lg: 17, xl: 20 } }}
+          >
             <Grid2 size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 12 }}>
               <Typography variant='h2' fontWeight='700'>
                 Stay Connected Instantly in Ghana – No-Contracts. Fast &
@@ -146,7 +211,7 @@ export default function HomePage () {
                 src='/Illus/vector.png'
                 alt='Platform Overview'
                 sx={{
-                  width: { md: '350px', xs:'100%'},
+                  width: { md: '350px', xs: '100%' },
                   height: 'auto',
                   pt: 1,
                   alignItems: 'center'
@@ -204,13 +269,13 @@ export default function HomePage () {
                 size='text'
                 sx={{
                   borderRadius: '50px',
-                  px: "2rem",
-                  py: "1rem",
+                  px: '2rem',
+                  py: '1rem',
                   display: { md: 'block' },
                   backgroundColor: appColors[theme.palette.mode]['fg'],
                   color: '#fff',
                   '&:hover': {
-                    backgroundColor: "#000"
+                    backgroundColor: '#000'
                   },
                   mt: 3
                 }}
@@ -223,9 +288,9 @@ export default function HomePage () {
               <Box
                 sx={{
                   width: '100%',
-                  display: {xs: 'none', md:'flex', lg: 'flex', xl: 'flex'},
-                  alignItems: {xs: 'center', md:'flex-end'},
-                  justifyContent: {xs: 'center', md:'end'}
+                  display: { xs: 'none', md: 'flex', lg: 'flex', xl: 'flex' },
+                  alignItems: { xs: 'center', md: 'flex-end' },
+                  justifyContent: { xs: 'center', md: 'end' }
                 }}
               >
                 <Box
@@ -233,7 +298,7 @@ export default function HomePage () {
                   src='/Images/hero_1.png'
                   alt='Platform Overview'
                   sx={{
-                    width: {md:'400px',},
+                    width: { md: '400px' },
                     height: 'auto',
                     alignItems: 'flex-end'
                   }}
@@ -246,3 +311,4 @@ export default function HomePage () {
     </Box>
   )
 }
+

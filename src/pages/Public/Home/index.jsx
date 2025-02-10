@@ -4,6 +4,7 @@ import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
+import Grid2 from '@mui/material/Grid2'
 import { useTheme } from '@mui/material/styles'
 import { CheckedBtn, VideoComponent } from '../../../component'
 import { appColors } from '../../../constants/color'
@@ -37,6 +38,7 @@ export default function HomePage () {
   return (
     <>
       <Box
+        id='home'
         sx={{
           position: 'relative',
           top: { xs: '170px', md: '120px' },
@@ -45,11 +47,15 @@ export default function HomePage () {
         }}
       >
         <Container maxWidth='lg'>
-        <VideoComponent videoSrc="https://rentsimconnect.com/static/media/video.65ee4fd3417d0633da1b.mp4" autoPlay={true} />
+          <VideoComponent
+            videoSrc='https://rentsimconnect.com/static/media/video.65ee4fd3417d0633da1b.mp4'
+            autoPlay={true}
+          />
         </Container>
       </Box>
 
       <Box
+        id='features'
         sx={{
           backgroundColor: '#F9F8FE'
         }}
@@ -290,6 +296,7 @@ export default function HomePage () {
         </Container>
       </Box>
       <Box
+        id="coverage"
         sx={{
           minHeight: '60vh',
           py: 9,
@@ -302,35 +309,29 @@ export default function HomePage () {
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
               <Box>
-                <VideoComponent
-                  videoSrc='/Videos/video_1.mp4'
-                />
+                <VideoComponent videoSrc='/Videos/video_1.mp4' />
               </Box>
             </Grid>
 
             <Grid item xs={12} md={4}>
               <Box>
-                <VideoComponent
-                  videoSrc='/Videos/video_2.mp4'
-                />
+                <VideoComponent videoSrc='/Videos/video_2.mp4' />
               </Box>
             </Grid>
 
             <Grid item xs={12} md={4}>
               <Box>
-                <VideoComponent
-                  videoSrc='/Videos/video_3.mp4'
-                />
+                <VideoComponent videoSrc='/Videos/video_3.mp4' />
               </Box>
             </Grid>
           </Grid>
 
-          <Box>
+          <Box id='faq'>
             <FAQSection />
           </Box>
         </Container>
       </Box>
-      <Box>
+      <Box id='pricing'>
         <PurchaseCards />
       </Box>
     </>

@@ -46,9 +46,6 @@ const styles = {
 const VideoComponent = ({ videoSrc, autoPlay = false }) => {
   const [isPlaying, setIsPlaying] = useState(autoPlay)
 
-  // Check if the source is an image
-  const isImg = /\.(jpeg|jpg|png|gif|webp)$/i.test(videoSrc)
-
   return (
     <Box sx={styles.container}>
       {isPlaying ? (
@@ -63,13 +60,11 @@ const VideoComponent = ({ videoSrc, autoPlay = false }) => {
         />
       ) : (
         <>
-          {isImg && (
             <img
-              src={videoSrc}
+              src="/Images/rent_1.png"
               alt="Video Thumbnail"
               style={{ ...styles.video, position: 'absolute', top: 0, left: 0 }}
             />
-          )}
           <Box sx={styles.overlay} />
           <IconButton
             color="primary"
