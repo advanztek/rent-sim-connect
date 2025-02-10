@@ -15,9 +15,9 @@ const plans = [
   {
     title: '1 Week Plan',
     desc: 'Charge per day',
-    priceBase: '4.30',
+    priceBase: '4.3',
     priceExponent: '$',
-    features: ['Number of Countries: 26', 'Valid for 7 days', '24/7 support'],
+    features: ['Number of Countries: 26', 'Valid for 7 days', 'unlimited data', 'Unlimited local & internet calls',],
     finalP: '$30 | Buy Now'
   },
   {
@@ -25,16 +25,16 @@ const plans = [
     desc: 'Charge per day',
     priceBase: '2.85',
     priceExponent: '$',
-    features: ['14 days access', 'Unlimited data', 'Priority support'],
-    finalP: '$30 | Buy Now'
+    features: ['Number of Countries: 26', 'Valid for 14 days', 'unlimited data', 'Unlimited local & internet calls',],
+    finalP: '$40 | Buy Now'
   },
   {
     title: '3 Weeks Plan',
     desc: 'Charge per day',
-    priceBase: '2.20',
+    priceBase: '2.2',
     priceExponent: '$',
-    features: ['21 days access', 'Unlimited data', 'Premium support'],
-    finalP: '$30 | Buy Now'
+    features:['Number of Countries: 26', 'Valid for 21 days', 'unlimited data', 'Unlimited local & internet calls',],
+    finalP: '$47 | Buy Now'
   }
 ]
 
@@ -53,7 +53,7 @@ const PlanCard = ({
       sx={{
         textAlign: 'center',
         width: '350px',
-        height: '560px',
+        height: 'auto',
         boxShadow: 3,
         pb: {xs: 3, sm: 3, md: 8, lg: 4, xl: 4},
         pt: {xs: 3, sm: 3, md: 3, lg: 4, xl: 4},

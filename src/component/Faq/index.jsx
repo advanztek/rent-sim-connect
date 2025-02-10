@@ -10,16 +10,15 @@ import { appColors } from "../../constants/color";
 import { useTheme } from "@mui/material";
 
 const faqs = [
-  { question: "What is RentSimConnect?", answer: "RentSimConnect is a service that allows travelers to stay connected without high roaming charges." },
-  { question: "How does it work?", answer: "You can rent a SIM card and use data services at affordable rates while traveling." },
-  { question: "What are the available plans?", answer: "We offer various plans based on your data needs. Visit our pricing page for details." },
-  { question: "Can I use my existing phone?", answer: "Yes, as long as your phone is unlocked and supports the network bands in Ghana." },
-  { question: "Do I need a passport to buy a SIM?", answer: "Yes, per regulations, travelers need to present a passport for SIM registration." },
-  { question: "What happens if I lose my SIM?", answer: "You can request a replacement SIM by contacting our support team." },
-  { question: "What happens if I lose my SIM?", answer: "You can request a replacement SIM by contacting our support team." },
-  { question: "What happens if I lose my SIM?", answer: "You can request a replacement SIM by contacting our support team." },
-  { question: "What happens if I lose my SIM?", answer: "You can request a replacement SIM by contacting our support team." },
-  { question: "What happens if I lose my SIM?", answer: "You can request a replacement SIM by contacting our support team." },
+  { question: "How does RentSimConnect work?", answer: "It’s simple! Choose a plan, receive your SIM or eSIM via airport pickup, hotel delivery, or email, and activate it instantly. No paperwork, no hassle!" },
+  { question: "How do I get my SIM or eSIM?", answer: "Once you place your order, we’ll deliver your physical SIM via airport pickup or hotel delivery, or send your eSIM directly to your email for instant activation." },
+  { question: "What happens when my plan expires?", answer: "You can easily extend your plan without changing SIMs—just top up and continue enjoying seamless connectivity!" },
+  { question: "Can I keep my original number while using your eSIM?", answer: "Yes! Our eSIM lets you stay connected in Ghana while keeping your original home country number active. Receive calls and texts as usual while enjoying local rates for data and calls." },
+  { question: "Will my internet speed be fast?", answer: "Absolutely! We provide high-speed, uninterrupted internet, so you can browse, stream, and work without lag or frustrating service drops." },
+  { question: "Can I use this service outside Ghana?", answer: "Yes! Our SIM and eSIM work in 26 African countries at no extra charge. Travel seamlessly without switching SIMs or paying roaming fees." },
+  { question: "Is RentSimConnect a Legitimate Service?", answer: "Yes! RentSimConnect Travel & Tours is a legally registered business with Ghana’s Registrar General’s Department as a licensed second-party telecommunications vendor. We operate transparently, ensuring reliable and secure connectivity for all travelers. Trusted by tourists and business travelers worldwide!" },
+  { question: "How am I saving over 70% on roaming charges?", answer: "Most international roaming plans cost around $10/day—sometimes even more! Our packages start at just $2.50/day, giving you the same fast, reliable internet at a fraction of the cost. That’s over 70% in savings compared to traditional roaming fees!" },
+  { question: "Do I get a refund if the service doesn’t work as promised?", answer: "Yes! If you experience service issues, you’re eligible for a full refund. Plus, we offer partial refunds for unused days if you need to terminate early. For example, if you purchase a 7-day package but leave after 3 days, we’ll refund the remaining 4 unused days—no hassle!" },
 ];
 
 export default function FAQSection() {
