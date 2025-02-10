@@ -10,14 +10,15 @@ import Link from '@mui/material/Link'
 import IconButton from '@mui/material/IconButton'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { appColors } from '../../constants/color'
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-
-
+import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 
 export default function Footer () {
   return (
     <Box sx={{ backgroundColor: '#041054', color: '#fff', py: 6 }}>
-      <Container maxWidth='lg' sx={{ px:{xs: 4, sm: 4, md: 10, lg: 5, xl: 4}}}>
+      <Container
+        maxWidth='lg'
+        sx={{ px: { xs: 3, sm: 4, md: 10, lg: 5, xl: 4 } }}
+      >
         <Grid container spacing={4} justifyContent='space-between'>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <Typography variant='h4' fontWeight='500'>
@@ -71,18 +72,25 @@ export default function Footer () {
                   Support
                 </Typography>
                 <Stack spacing={1} sx={{ mt: 2 }}>
-                  <Link href='#' sx={{fontSize:{xs: "13px", md: "15px"}}} color='#A6A6A6' underline='hover'>
+                  <Link
+                    href='#'
+                    sx={{ fontSize: { xs: '13px', md: '15px' } }}
+                    color='#A6A6A6'
+                    underline='hover'
+                  >
                     Help Center
                   </Link>
                   <Link
-                    href='#' sx={{fontSize:{xs: "13px", md: "15px"}}}
+                    href='#'
+                    sx={{ fontSize: { xs: '13px', md: '15px' } }}
                     color='#A6A6A6'
                     underline='hover'
                   >
                     FAQs
                   </Link>
                   <Link
-                    href='#' sx={{fontSize:{xs: "13px", md: "15px"}}}
+                    href='#'
+                    sx={{ fontSize: { xs: '13px', md: '15px' } }}
                     color='#A6A6A6'
                     underline='hover'
                   >
@@ -96,10 +104,35 @@ export default function Footer () {
                   Contact Us
                 </Typography>
                 <Stack spacing={1} sx={{ mt: 2 }}>
-                  <Typography color='#A6A6A6' sx={{fontSize:{xs:'13px', md: '15px'},}}>Email: info@rentsimconnect.com</Typography>
-                  <Typography color='#A6A6A6' sx={{fontSize:{xs:'13px', md: '15px'},}}>Phone: +233 206983015</Typography>
-                  <Typography color='#A6A6A6' sx={{fontSize:{xs:'13px', md: '15px'},}}>Address: NII SAI GBEHE LN GD-184-1768 AMERICAN HOUSE, EAST LEGON</Typography>
-                  <Box display='flex'  alignItems="center" color='#A6A6A6'><WhatsAppIcon /> : +233 20698 3015 </Box>
+                  <Typography
+                    color='#A6A6A6'
+                    sx={{ fontSize: { xs: '13px', md: '15px' } }}
+                  >
+                    Email: info@rentsimconnect.com
+                  </Typography>
+                  <Typography
+                    color='#A6A6A6'
+                    sx={{ fontSize: { xs: '13px', md: '15px' } }}
+                  >
+                    Phone: +233 206983015
+                  </Typography>
+                  <Typography
+                    color='#A6A6A6'
+                    sx={{ fontSize: { xs: '13px', md: '15px' } }}
+                  >
+                    Address: NII SAI GBEHE LN GD-184-1768 AMERICAN HOUSE, EAST
+                    LEGON
+                  </Typography>
+                  <Box
+                    sx={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 1
+                    }}
+                  >
+                    <WhatsAppIcon sx={{ mb: {xs:2.5, md:0.5}}} />
+                    <span> : +233 20698 3015</span>
+                  </Box>
                 </Stack>
               </Box>
             </Box>
@@ -118,18 +151,10 @@ export default function Footer () {
             © 2025 Rent Sim Connect. All rights reserved.
           </Typography>
           <Stack direction='row' spacing={2} mt={1}>
-            <Link
-              href='#'
-              color='#fff'
-              underline='hover'
-            >
+            <Link href='#' color='#fff' underline='hover'>
               Terms & Conditions
             </Link>
-            <Link
-              href='#'
-              color='#A6A6A6'
-              underline='hover'
-            >
+            <Link href='#' color='#A6A6A6' underline='hover'>
               Privacy Policy
             </Link>
           </Stack>
