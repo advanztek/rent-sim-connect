@@ -153,6 +153,12 @@ export default function HomePage () {
                     : appColors[theme.palette.mode]['fg']
                 }
               }}
+              onClick={() => {
+                const section = document.getElementById('pricing');
+                if (section) {
+                  section.scrollIntoView({ behavior: 'smooth'})
+                }
+              }}
             >
               Get SIM Now
             </Button>
@@ -290,6 +296,12 @@ export default function HomePage () {
                     backgroundColor: '#000'
                   },
                   mt: 3
+                }}
+                onClick={() => {
+                  const section = document.getElementById('pricing');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth'})
+                  }
                 }}
               >
                 Connect me now

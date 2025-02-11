@@ -53,8 +53,8 @@ const VideoComponent = ({ videoSrc, autoPlay = false }) => {
         src={videoSrc}
         muted
         loop
-        controls={isPlaying}
         autoPlay={isPlaying}
+        controls={!autoPlay && isPlaying} 
         style={styles.video}
       />
 

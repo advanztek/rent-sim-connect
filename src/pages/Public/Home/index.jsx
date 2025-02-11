@@ -206,6 +206,12 @@ export default function HomePage () {
                       backgroundColor: '#000'
                     }
                   }}
+                  onClick={() => {
+                    const section = document.getElementById('pricing');
+                    if (section) {
+                      section.scrollIntoView({ behavior: 'smooth'})
+                    }
+                  }}
                 >
                   Choose a plan
                 </Button>
@@ -287,6 +293,12 @@ export default function HomePage () {
                     borderRadius: '50px',
                     textTransform: 'uppercase',
                     backgroundColor: appColors[theme.palette.mode]['fg']
+                  }}
+                  onClick={() => {
+                    const section = document.getElementById('pricing');
+                    if (section) {
+                      section.scrollIntoView({ behavior: 'smooth'})
+                    }
                   }}
                 >
                   Get your SIM Now
