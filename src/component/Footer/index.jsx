@@ -131,7 +131,7 @@ export default function Footer () {
                     }}
                   >
                     <WhatsAppIcon sx={{ mb: {xs:2.5, md:0.5}}} />
-                    <span> : +233 20698 3015</span>
+                    <span>: +233 20698 3015</span>
                   </Box>
                 </Stack>
               </Box>
