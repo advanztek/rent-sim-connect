@@ -144,7 +144,7 @@ button,
 .features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 22px;
   margin-bottom: 42px;
 
   li {
@@ -180,7 +180,7 @@ button,
 .features.two {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 22px;
   li {
     color: var(--fg-secondary);
   }
@@ -389,8 +389,13 @@ header {
 
       .menu {
         font-size: 28px;
+        display: block;
         cursor: pointer;
         color: var(--color-quaternary);
+
+        @media (min-width: 1024px) {
+          display: none;
+        }
       }
     }
   }
@@ -406,6 +411,7 @@ header {
   margin-top: calc(var(--video-size) / 2 * -1);
   border-radius: 30px;
   overflow: hidden;
+  resize: vertical;
 
   .over {
     position: absolute;
@@ -438,6 +444,13 @@ header {
   .over.bg {
     background-image: linear-gradient(90deg, #001690b7, #701a75af 70%);
   }
+}
+
+.video.testimonial {
+  width: var(--video-size);
+  min-width: var(--video-size);
+  margin-top: unset;
+  margin-inline: unset;
 }
 
 /* show one */
@@ -535,7 +548,7 @@ header {
           color: var(--fg-primary);
           font-size: 24px;
           font-weight: 700;
-          margin-bottom: 10px;
+          margin-bottom: 8px;
 
           @media (min-width: 600px) {
             font-size: 29px;
@@ -555,8 +568,8 @@ header {
     li.shift {
       margin-left: 0;
 
-      @media (min-width: 600p) {
-        margin-left: -15px;
+      @media (min-width: 600px) {
+        margin-left: -25px;
       }
     }
 
@@ -613,6 +626,45 @@ header {
 
 .confirm {
   padding: 92px 0;
+  background-image: linear-gradient(180deg, #d3d8f5, transparent 90%);
+
+  .testimonials {
+    display: flex;
+    gap: 16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 52px;
+    padding-bottom: 10px;
+
+    &::-webkit-scrollbar {
+      --size: 10px;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 999px;
+    }
+
+    /* Scrollbar thumb */
+    &::-webkit-scrollbar-thumb {
+      background-image: linear-gradient(
+        90deg,
+        var(--color-primary),
+        var(--color-secondary)
+      );
+      border-radius: 999px;
+    }
+
+    /* Scrollbar track */
+    &::-webkit-scrollbar-track {
+      background-color: var(--color-quaternary);
+      border-radius: 999px;
+    }
+
+    /* Scrollbar buttons */
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+  }
+
   .faqs {
     h2 {
       font-size: 32px;
