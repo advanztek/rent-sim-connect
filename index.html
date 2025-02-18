@@ -1,19 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/Logo/Logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rent.Sim.Connect</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Rent SIM Connect</title>
+
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+    <!-- font start -->
+    <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      href="https://fonts.bunny.net/css?family=inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
+    <!-- font end -->
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <section class="hero">
+      <header>
+        <div class="container">
+          <div class="in">
+            <div class="logo">
+              <img src="./images/logo.png" alt="logo" />
+              <p class="show">RentSimConnect</p>
+            </div>
+            <nav>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Coverage</a></li>
+                <li><a href="#">FAQs</a></li>
+              </ul>
+            </nav>
+            <div class="cta">
+              <span class="menu">
+                <i class="ph-bold ph-list"></i>
+              </span>
+              <button class="btn primary xs round-md">Get SIM Now</button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="content">
+        <div class="container">
+          <div class="in">
+            <div>
+              <h1 class="tag">
+                Stay Connected Instantly in Ghana – No-Contracts. Fast &
+                Affordable
+              </h1>
+              <p class="sub-tag-one">
+                Unlimited Internet & local Calls with RentSimConnect
+              </p>
+              <img
+                class="underline"
+                src="./illus/underline.svg"
+                alt="underline illustration"
+              />
+              <p class="sub-tag-two">
+                Arriving in Ghana? Skip the hassle of expensive roaming fees and
+                unreliable public WiFi! with RentSimConnect, you get:
+              </p>
+              <ul class="features">
+                <li>Instant Activation</li>
+                <li>26 African Countries</li>
+                <li>From $2.50/day</li>
+                <li>eSIM/Physical SIM</li>
+              </ul>
+              <button class="btn primary md round-full">Connect Me Now</button>
+            </div>
+            <div>
+              <div class="illus">
+                <img src="./illus/check.svg" alt="checkmark illustration" />
+                <img src="./illus/gh.webp" alt="ghana flag" />
+                <img src="./illus/comment.svg" alt="comment illustration" />
+                <img
+                  class="img"
+                  src="./images/hero-1.png"
+                  alt="girl enjoying with RentSimConnect services"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hide">
+      <h1>Rent SIM Connect</h1>
+      <button class="btn primary xs round-md">Get SIM Now</button>
+      <button class="btn primary sm round-full">GET YOUR SIM NOW</button>
+      <button class="btn primary md round-md">$40 | Buy Now</button>
+    </div>
   </body>
 </html>
