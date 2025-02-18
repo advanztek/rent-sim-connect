@@ -12,6 +12,7 @@
   --btn-success-hover-fg: #001690d8;
   --border-secondary: #a6a6a6;
   --divider-primary: #ffffff;
+  --hero-overlap-size: 143.3px;
 }
 
 * {
@@ -24,7 +25,20 @@ body {
   font-family: var(--font-family);
   margin: 0;
   padding: 0;
-  font-size-adjust: 12px;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-success);
+  --video-size: var(--hero-overlap-size);
+
+  @media (min-width: 600px) {
+    --video-size: calc(var(--hero-overlap-size) * 1.5);
+  }
+
+  @media (min-width: 1024px) {
+    --video-size: calc(var(--hero-overlap-size) * 2);
+  }
 }
 
 h1,
@@ -125,14 +139,58 @@ button,
   display: none;
 }
 
+/* features component */
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 42px;
+
+  li {
+    --size: 28px;
+    position: relative;
+    padding-left: calc(var(--size) + var(--size) * 0.75);
+    font-size: 16px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      background-image: url('./illus/check.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: var(--size);
+      height: var(--size);
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.features.two {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  li {
+    color: #a6a6a6;
+  }
+}
+
 /* hero section */
 .hero {
   background-color: var(--bg-success);
   position: relative;
   isolation: isolate;
   z-index: 0;
-  box-sizing: border-box;
-  height: fit-content;
   overflow: hidden;
 
   &::before {
@@ -169,7 +227,9 @@ button,
 
   .content {
     .in {
-      padding-top: 42px;
+      --pad: 42px;
+      padding-top: var(--pad);
+      padding-bottom: calc(var(--pad) + calc(var(--video-size) / 2));
       display: grid;
       grid-template-columns: 1fr;
       grid-template-areas: 'hero-two' 'hero-one';
@@ -184,6 +244,10 @@ button,
           @media (min-width: 400px) {
             font-size: 42px;
           }
+
+          @media (min-width: 1024px) {
+            font-size: 49px;
+          }
         }
 
         .underline {
@@ -191,46 +255,18 @@ button,
           width: 70%;
         }
 
-        .sub-tag-one {
+        .sub-tag:nth-of-type(1) {
           font-weight: 400;
           font-size: 18px;
           line-height: 1.2;
           margin-top: 18px;
         }
 
-        .sub-tag-two {
+        .sub-tag:nth-of-type(2) {
           font-weight: 700;
           font-size: 16px;
           line-height: 1.2;
           margin: 22px 0;
-        }
-
-        .features {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 16px;
-          margin-bottom: 42px;
-
-          li {
-            --size: 20px;
-            position: relative;
-            padding-left: calc(var(--size) + var(--size) * 0.75);
-            font-size: 16px;
-
-            &::before {
-              content: '';
-              display: inline-block;
-              background-image: url('./illus/check.svg');
-              background-size: contain;
-              background-repeat: no-repeat;
-              position: absolute;
-              left: 0;
-              top: 50%;
-              transform: translateY(-50%);
-              width: var(--size);
-              height: var(--size);
-            }
-          }
         }
       }
       & > div:nth-child(2) {
@@ -245,8 +281,9 @@ button,
           width: 60%;
           margin-inline: auto;
           border-radius: var(--round);
+          isolation: isolate;
 
-          img:not(.img) {
+          img:not(.img):not(.wave) {
             --size: 30px;
             position: absolute;
             height: var(--size);
@@ -270,13 +307,37 @@ button,
             width: 100%;
             object-fit: cover;
             object-position: top left;
+
+            @media (min-width: 1024px) {
+              height: 80%;
+            }
+          }
+
+          .wave {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            top: 0;
+            z-index: -1;
+            opacity: 0.35;
           }
 
           @media (min-width: 400px) {
             height: 300px;
             width: 70%;
           }
+
+          @media (min-width: 1024px) {
+            width: min(80%, 340px);
+            height: 420px;
+          }
         }
+      }
+
+      @media (min-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 'hero-one hero-two';
+        align-items: center;
       }
     }
   }
@@ -297,12 +358,15 @@ header {
 
       img {
         height: 50px;
+        @media (min-width: 600px) {
+          height: 40px;
+        }
       }
 
       p {
         font-weight: 600;
         color: var(--color-primary);
-        font-size: 33px;
+        font-size: 24px;
       }
 
       p.show {
@@ -327,6 +391,94 @@ header {
         cursor: pointer;
         color: var(--color-quaternary);
       }
+    }
+  }
+}
+
+/* video */
+.video {
+  height: var(--video-size);
+  position: relative;
+  isolation: isolate;
+  width: 95%;
+  margin-inline: auto;
+  margin-top: calc(var(--video-size) / 2 * -1);
+  border-radius: 30px;
+  overflow: hidden;
+
+  .over {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      --size: calc(var(--video-size) * 0.5);
+      height: var(--size);
+      width: var(--size);
+      background-color: #121619bf;
+      border-radius: 999px;
+      color: #ffffff88;
+      font-size: calc(var(--size) / 2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .over.bg {
+    background-image: linear-gradient(90deg, #001690b7, #701a75af 70%);
+  }
+}
+
+/* show one */
+.show-1 {
+  padding: 42px 0;
+  .in {
+    & > div:nth-child(2) {
+      padding-top: 52px;
+      h2 {
+        font-weight: 400;
+        font-size: 26px;
+        span {
+          font-weight: 700;
+        }
+
+        @media (min-width: 600px) {
+          h2 {
+            font-size: 43px;
+          }
+        }
+      }
+
+      .top {
+        margin-top: 32px;
+      }
+    }
+
+    & > div:nth-child(1) {
+      img {
+        display: block;
+        width: 70%;
+        margin-inline: auto;
+
+        @media (min-width: 1024px) {
+          width: min(90%, 400px);
+        }
+      }
+    }
+
+    @media (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
