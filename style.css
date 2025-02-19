@@ -439,7 +439,6 @@ header {
   margin-top: calc(var(--video-size) / 2 * -1);
   border-radius: 30px;
   overflow: hidden;
-  resize: vertical;
 
   .over {
     position: absolute;

@@ -101,4 +101,29 @@ function toggleFAQ(i) {
   }
 }
 
+function bootVideos() {
+  document.querySelectorAll('#video').forEach((videoRef) => {
+    const videoEl = videoRef.querySelector('video')
+    const btnEl = videoRef.querySelector('#video-btn')
+    const overlayEl = videoRef.querySelector('.over')
+
+    if (videoEl.muted) {
+      videoEl.volume = 0
+    }
+
+    btnEl.addEventListener('click', () => {
+      if (videoEl.paused) {
+        videoEl.play()
+        overlayEl.classList.remove('bg')
+        btnEl.innerHTML = `<i class="ph-bold ph-pause"></i>`
+      } else {
+        videoEl.pause()
+        overlayEl.classList.add('bg')
+        btnEl.innerHTML = `<i class="ph-bold ph-play"></i>`
+      }
+    })
+  })
+}
+
+bootVideos()
 renderFAQs()
