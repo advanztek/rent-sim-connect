@@ -416,8 +416,8 @@ header {
       gap: var(--col-gap);
 
       .menu {
+        display: none;
         font-size: 28px;
-        display: block;
         cursor: pointer;
         color: var(--color-quaternary);
 
